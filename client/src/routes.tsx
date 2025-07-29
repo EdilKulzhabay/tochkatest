@@ -17,6 +17,18 @@ import Schedule from './pages/user/schedule';
 
 // Импорт страниц админа
 import AdminDashboard from './pages/admin/dashboard';
+import AdminMeditations from './pages/admin/meditations';
+import AdminMeditationForm from './pages/admin/meditation-form';
+import AdminPractices from './pages/admin/practices';
+import AdminPracticeForm from './pages/admin/practice-form';
+import AdminHoroscopes from './pages/admin/horoscopes';
+import AdminHoroscopeForm from './pages/admin/horoscope-form';
+import AdminVideoLessons from './pages/admin/video-lessons';
+import AdminVideoLessonForm from './pages/admin/video-lesson-form';
+import AdminTransits from './pages/admin/transits';
+import AdminTransitForm from './pages/admin/transit-form';
+import AdminFAQ from './pages/admin/faq';
+import AdminFAQForm from './pages/admin/faq-form';
 
 export const router = createBrowserRouter([
     {
@@ -71,8 +83,105 @@ export const router = createBrowserRouter([
         path: '/schedule',
         element: <Schedule />,
     },
+    // Админские роуты
     {
         path: '/admin',
         element: <AdminDashboard />,
+    },
+    // Медитации
+    {
+        path: '/admin/meditations',
+        element: <AdminMeditations />,
+    },
+    {
+        path: '/admin/meditations/new',
+        element: <AdminMeditationForm />,
+    },
+    {
+        path: '/admin/meditations/edit/:id',
+        element: <AdminMeditationForm />,
+    },
+    // Практики
+    {
+        path: '/admin/practices',
+        element: <AdminPractices />,
+    },
+    {
+        path: '/admin/practices/new',
+        element: <AdminPracticeForm />,
+    },
+    {
+        path: '/admin/practices/edit/:id',
+        element: <AdminPracticeForm />,
+    },
+    // Видео (старые)
+    {
+        path: '/admin/videos',
+        element: <AdminPractices />, // Временно используем ту же страницу
+    },
+    {
+        path: '/admin/videos/new',
+        element: <AdminMeditationForm />, // Временно используем ту же форму
+    },
+    {
+        path: '/admin/videos/edit/:id',
+        element: <AdminMeditationForm />, // Временно используем ту же форму
+    },
+    // Видео-уроки
+    {
+        path: '/admin/video-lessons',
+        element: <AdminVideoLessons />,
+    },
+    {
+        path: '/admin/video-lessons/new',
+        element: <AdminVideoLessonForm />,
+    },
+    {
+        path: '/admin/video-lessons/edit/:id',
+        element: <AdminVideoLessonForm />,
+    },
+    // Гороскопы
+    {
+        path: '/admin/horoscopes',
+        element: <AdminHoroscopes />,
+    },
+    {
+        path: '/admin/horoscopes/new',
+        element: <AdminHoroscopeForm />,
+    },
+    {
+        path: '/admin/horoscopes/edit/:id',
+        element: <AdminHoroscopeForm />,
+    },
+    // Транзиты
+    {
+        path: '/admin/transits',
+        element: <AdminTransits />,
+    },
+    {
+        path: '/admin/transits/new',
+        element: <AdminTransitForm />,
+    },
+    {
+        path: '/admin/transits/edit/:id',
+        element: <AdminTransitForm />,
+    },
+    // FAQ
+    {
+        path: '/admin/faq',
+        element: <AdminFAQ />,
+    },
+    {
+        path: '/admin/faq/new',
+        element: <AdminFAQForm />,
+    },
+    {
+        path: '/admin/faq/edit/:id',
+        element: <AdminFAQForm />,
+    },
+    // Пользователи
+    {
+        path: '/admin/users',
+        element: <AdminPractices />, // Временно используем ту же страницу
     },
 ]); 
