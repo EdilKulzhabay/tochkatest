@@ -56,11 +56,6 @@ const Practices: React.FC = () => {
         }
     };
 
-    const handleSubscribe = () => {
-        window.open('https://tochka.tg/', '_blank');
-        setShowSubscriptionModal(false);
-    };
-
     return (
         <div className="min-h-screen bg-white">
             {/* Header */}
