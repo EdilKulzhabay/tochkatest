@@ -85,7 +85,7 @@ const Profile: React.FC = () => {
                         </div>
                         <div className="flex-1">
                             <div className="flex items-center justify-between">
-                                <span className="text-gray-900 font-medium">Badges</span>
+                                <span className="text-gray-900 font-medium">Звезды</span>
                                 <span className="text-gray-900 font-bold text-lg">2</span>
                             </div>
                             <p className="text-gray-700 text-sm mt-1">
