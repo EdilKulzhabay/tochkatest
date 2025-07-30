@@ -89,7 +89,7 @@ const Profile: React.FC = () => {
                                 <span className="text-gray-900 font-bold text-lg">2</span>
                             </div>
                             <p className="text-gray-700 text-sm mt-1">
-                                За выполнение Б/У и дневник
+                                За выполнение Б/У и ведение дневника
                             </p>
                         </div>
                     </div>

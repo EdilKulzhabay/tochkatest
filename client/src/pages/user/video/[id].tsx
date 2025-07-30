@@ -13,7 +13,6 @@ interface VideoLesson {
 
 const VideoDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-    const [isPlaying, setIsPlaying] = useState(false);
 
     const [videoLessons] = useState<VideoLesson[]>([
         {
@@ -63,10 +62,6 @@ const VideoDetail: React.FC = () => {
         );
     }
 
-    const handlePlayClick = () => {
-        setIsPlaying(true);
-    };
-
     return (
         <div className="min-h-screen">
             {/* Header with Back Button */}
@@ -84,45 +79,15 @@ const VideoDetail: React.FC = () => {
                 {/* Video Player */}
                 <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                        {!isPlaying ? (
-                            // Превью с кнопкой воспроизведения
-                            <div className="absolute top-0 left-0 w-full h-full bg-black">
-                                <img 
-                                    src={currentVideo.thumbnailUrl} 
-                                    alt={currentVideo.title}
-                                    className="w-full h-full object-cover"
-                                    onError={(e) => {
-                                        const target = e.target as HTMLImageElement;
-                                        target.style.display = 'none';
-                                        const placeholder = document.createElement('div');
-                                        placeholder.className = 'w-full h-full bg-blue-600 flex items-center justify-center text-white text-center p-4';
-                                        placeholder.innerHTML = `<div><div class="text-4xl mb-4">📹</div><div class="text-lg">${videoLessons[Number(id) - 1].title}</div></div>`;
-                                        target.parentNode?.appendChild(placeholder);
-                                    }}
-                                />
-                                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                                    <button
-                                        onClick={handlePlayClick}
-                                        className="bg-red-600 hover:bg-red-700 text-white rounded-full w-20 h-20 flex items-center justify-center transition-colors shadow-lg"
-                                    >
-                                        <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        ) : (
-                            // YouTube iframe после нажатия кнопки воспроизведения
-                            <iframe
-                                src={`${currentVideo.youtubeUrl}?autoplay=1`}
-                                title={currentVideo.title}
-                                className="absolute top-0 left-0 w-full h-full"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                loading="lazy"
-                            ></iframe>
-                        )}
+                        <iframe
+                            src={`${currentVideo.youtubeUrl}`}
+                            title={currentVideo.title}
+                            className="absolute top-0 left-0 w-full h-full"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                        ></iframe>
                     </div>
                 </div>
 

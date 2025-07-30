@@ -18,7 +18,11 @@ const About: React.FC = () => {
             <div className="max-w-2xl mx-auto p-6">
                 {/* App Version */}
                 <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6 text-center">
-                    <div className="text-4xl mb-4">📱</div>
+                    <div className="flex items-center justify-center mb-3">
+                        <div>
+                            <img src="/icons/logo.png" alt="logo" className="w-10 h-10" />
+                        </div>
+                    </div>
                     <h2 className="text-xl font-bold text-gray-900 mb-2">tochka.li</h2>
                     <p className="text-gray-600">Версия приложения: 0.0.1</p>
                 </div>
