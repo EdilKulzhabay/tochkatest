@@ -68,8 +68,8 @@ const Main: React.FC = () => {
                         <div>Вопросы<br/> и ответы</div>
                     </Link>
                     <Link to="/meditations" className="bg-gray-100 rounded-lg flex items-center justify-between p-4 text-gray-800 text-center pl-2">
-                    <div className=""><img src={'/icons/meditations.png'} alt="meditations" className="w-16 h-16" /></div>
-                        <span>Меди<br/>тации</span>
+                    <div className=""><img src={'/icons/meditations.png'} alt="meditations" className="w-14 h-14" /></div>
+                        <span>Медитации</span>
                     </Link>
                     <Link to="/video" className="bg-gray-100 rounded-lg flex items-center justify-between p-4 text-gray-800 text-center pl-2">
                         <div className=""><img src={'/icons/video.png'} alt="video" className="w-16 h-16" /></div>

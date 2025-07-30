@@ -69,7 +69,7 @@ const Meditations: React.FC = () => {
     const getAccessColor = (accessType: string) => {
         switch (accessType) {
             case 'free':
-                return 'bg-green-500 hover:bg-green-600';
+                return 'bg-blue-500 hover:bg-blue-600';
             case 'subscription':
                 return 'bg-purple-500 hover:bg-purple-600';
             default:

@@ -38,13 +38,11 @@ const Profile: React.FC = () => {
                     {/* Profile Picture */}
                     <div className="relative inline-block mb-4">
                         <div className="w-24 h-24 bg-blue-200 rounded-lg flex items-center justify-center relative">
-                            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
-                                <span className="text-2xl text-gray-400">👤</span>
-                            </div>
+                            <img src="/images/user.jpg" alt="user" className="w-24 h-24 rounded-lg" />
                             {/* Edit Icon */}
-                            <button className="absolute -bottom-1 -right-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            {/* <button className="absolute -bottom-1 -right-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                                 <span className="text-white text-sm">✏️</span>
-                            </button>
+                            </button> */}
                         </div>
                     </div>
 
@@ -83,7 +81,7 @@ const Profile: React.FC = () => {
                 <div className="bg-gray-100 rounded-lg p-4 mb-8">
                     <div className="flex items-center">
                         <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                            <span className="text-white text-lg">🏆</span>
+                            <span className="text-white text-lg">⭐</span>
                         </div>
                         <div className="flex-1">
                             <div className="flex items-center justify-between">

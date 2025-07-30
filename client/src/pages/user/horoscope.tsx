@@ -97,9 +97,9 @@ const Horoscope: React.FC = () => {
                         </span>
                     </div>
 
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">
+                    {/* <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">
                         {currentHoroscope.title}
-                    </h2>
+                    </h2> */}
                     <h3 className="text-xl text-blue-600 mb-6 text-center">
                         {currentHoroscope.energyName}
                     </h3>
@@ -148,7 +148,7 @@ const Horoscope: React.FC = () => {
                         onClick={() => setShowModal(true)}
                         className="bg-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
                     >
-                        Посмотреть все гороскопы
+                        Посмотреть все знаки
                     </button>
                 </div>
             </div>

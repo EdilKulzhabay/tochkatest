@@ -6,7 +6,7 @@ const About: React.FC = () => {
         <div className="min-h-screen bg-white">
             {/* Header with Back Button */}
             <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
-                <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                <Link to="/profile" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                     <span className="text-lg">←</span>
                 </Link>
                 <h1 className="text-2xl font-bold">О приложении</h1>
@@ -32,10 +32,10 @@ const About: React.FC = () => {
                         <div>
                             <h4 className="text-sm font-semibold text-gray-700 mb-2">E-mail</h4>
                             <a 
-                                href="mailto:SUPPORT@WIMHOFMETHOD.COM" 
+                                href="mailto:support@tochka.li" 
                                 className="text-blue-600 hover:text-blue-700 transition-colors"
                             >
-                                SUPPORT@WIMHOFMETHOD.COM
+                                support@tochka.li
                             </a>
                         </div>
 
@@ -43,38 +43,12 @@ const About: React.FC = () => {
                         <div>
                             <h4 className="text-sm font-semibold text-gray-700 mb-2">Website</h4>
                             <a 
-                                href="https://WWW.WIMHOFMETHOD.COM" 
+                                href="https://tochka.li" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="text-blue-600 hover:text-blue-700 transition-colors"
                             >
-                                WWW.WIMHOFMETHOD.COM
-                            </a>
-                        </div>
-
-                        {/* Facebook */}
-                        <div>
-                            <h4 className="text-sm font-semibold text-gray-700 mb-2">Facebook</h4>
-                            <a 
-                                href="https://facebook.com/ICEMAN.WIMHOF" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-700 transition-colors"
-                            >
-                                ICEMAN - WIM HOF
-                            </a>
-                        </div>
-
-                        {/* X (Twitter) */}
-                        <div>
-                            <h4 className="text-sm font-semibold text-gray-700 mb-2">X</h4>
-                            <a 
-                                href="https://x.com/ICEMAN_HOF" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-700 transition-colors"
-                            >
-                                @ICEMAN_HOF
+                                www.tochka.li
                             </a>
                         </div>
 
@@ -82,12 +56,12 @@ const About: React.FC = () => {
                         <div>
                             <h4 className="text-sm font-semibold text-gray-700 mb-2">YouTube</h4>
                             <a 
-                                href="https://youtube.com/c/WIMHOF" 
+                                href="https://youtube.com/@tochkali" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="text-blue-600 hover:text-blue-700 transition-colors"
                             >
-                                WIM HOF
+                                youtube.com/@tochkali
                             </a>
                         </div>
 
@@ -95,12 +69,12 @@ const About: React.FC = () => {
                         <div>
                             <h4 className="text-sm font-semibold text-gray-700 mb-2">Instagram</h4>
                             <a 
-                                href="https://instagram.com/ICEMAN_HOF" 
+                                href="https://instagram.com/nurlan_muratkali" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="text-blue-600 hover:text-blue-700 transition-colors"
                             >
-                                @ICEMAN_HOF
+                                instagram.com/nurlan_muratkali
                             </a>
                         </div>
 
@@ -108,7 +82,7 @@ const About: React.FC = () => {
                         <div>
                             <h4 className="text-sm font-semibold text-gray-700 mb-2">Адрес</h4>
                             <p className="text-gray-600">
-                                Avenida do Infante 8/3M, 9000-015 Funchal, Madeira
+                                123104, г. Москва, ул. Малая Бронная, д. 21/13, кв. 3
                             </p>
                         </div>
                     </div>

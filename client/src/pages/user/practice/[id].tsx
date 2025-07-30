@@ -129,9 +129,82 @@ const PracticeDetail: React.FC = () => {
                     {/* Full Description */}
                     <div className="prose max-w-none">
                         <h3 className="text-lg font-semibold text-gray-900 mb-3">Описание</h3>
-                        <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                            {practice.description}
-                        </div>
+                        {id === '1' && (
+                            <div className="space-y-6">
+                                <div className="">
+                                    <h4 className="text-xl font-bold text-gray-900 mb-4">
+                                        Вы молоды настолько, насколько молоды ваши суставы!
+                                    </h4>
+                                    <p className="text-gray-700 leading-relaxed mb-6">
+                                        Омолаживающая энергетическая суставная гимнастика – это комплекс простых 
+                                        физических движений и энергетических практик, направленных на восстановление 
+                                        подвижности суставов, гибкости позвоночника, расслабление мышечных зажимов и 
+                                        укрепление сухожилий глаз, что прямым образом влияет на улучшение вашего зрения.
+                                    </p>
+                                    
+                                    {/* Изображение-заглушка для суставов */}
+                                    <div className="">
+                                        <img src="/images/practiceContent1.png" alt="practice1" className="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+
+                                <div className="">
+                                    <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                                        Самое главное – уловить суть и запомнить последовательность движений:
+                                    </h4>
+                                    
+                                    <ul className="space-y-4 text-gray-700">
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span>тело делится на несколько частей;</span>
+                                        </li>
+                                        
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span>
+                                                каждая часть может двигаться в нескольких плоскостях, например: вперед, назад, 
+                                                влево, вправо, затем скручивание в 2-4 стороны и вращательные движения в обе 
+                                                стороны;
+                                            </span>
+                                        </li>
+                                        
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span>в каждой плоскости нужно сделать по 5-10 движений;</span>
+                                        </li>
+                                        
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                            <span>в конце каждого блока – медитативная энергетическая практика.</span>
+                                        </li>
+                                    </ul>
+
+                                    <p className="text-gray-700 leading-relaxed">
+                                        Заниматься такой гимнастикой можно от 1 до 6 раз в неделю.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
+                        {id === '2' && (
+                            <div className="space-y-6">
+                                <div className="">
+                                    <p className="text-gray-700 leading-relaxed mb-6">
+                                        Бесполезное упражнение – внешне очень простой инструмент в работе с подсознанием. 
+                                        Но, как вы уже догадались, глубокий по содержанию и сложный по исполнению. И очень 
+                                        эффективный. Главная цель этого упражнения – взять под осознанный контроль и 
+                                        управление своё подсознание и свою жизнь.
+                                    </p>
+                                </div>
+
+                                <div className="">
+                                    <p className="text-gray-700 leading-relaxed font-semibold mb-4">
+                                        Получите удовольствие от этого упражнения, двигайтесь и посмотрите, что 
+                                        вы получите. Примите этот вызов самому себе.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 

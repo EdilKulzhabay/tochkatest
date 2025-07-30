@@ -29,7 +29,7 @@ const Transits: React.FC = () => {
         {
             id: '1',
             dateRange: '25–30 июля',
-            title: 'ВОРОТА ЛИДЕРСТВА',
+            title: '31 – ВОРОТА ЛИДЕРСТВА',
             geneKey: 'Генный ключ «Звучание вашей истины»',
             accessType: 'free',
             content: {
@@ -130,7 +130,7 @@ const Transits: React.FC = () => {
                 <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
                     <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <h1 className="text-2xl font-bold">Транзиты</h1>
+                <h1 className="text-2xl font-bold">Описание транзитов</h1>
                 <div>
                     <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
                 </div>
