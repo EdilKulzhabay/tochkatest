@@ -14,6 +14,7 @@ import FAQ from './pages/user/faq';
 import ClubLi from './pages/user/clubLi';
 import Diary from './pages/user/diary';
 import Schedule from './pages/user/schedule';
+import About from './pages/user/about';
 
 // Импорт страниц админа
 import AdminDashboard from './pages/admin/dashboard';
@@ -27,8 +28,11 @@ import AdminVideoLessons from './pages/admin/video-lessons';
 import AdminVideoLessonForm from './pages/admin/video-lesson-form';
 import AdminTransits from './pages/admin/transits';
 import AdminTransitForm from './pages/admin/transit-form';
+import AdminSchedule from './pages/admin/schedule';
+import AdminScheduleForm from './pages/admin/schedule-form';
 import AdminFAQ from './pages/admin/faq';
 import AdminFAQForm from './pages/admin/faq-form';
+import MeditationDetail from './pages/user/meditation/[id]';
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +50,10 @@ export const router = createBrowserRouter([
     {
         path: '/meditations',
         element: <Meditations />,
+    },
+    {
+        path: '/meditation/:id',
+        element: <MeditationDetail />,
     },
     {
         path: '/video',
@@ -82,6 +90,10 @@ export const router = createBrowserRouter([
     {
         path: '/schedule',
         element: <Schedule />,
+    },
+    {
+        path: '/about',
+        element: <About />,
     },
     // Админские роуты
     {
@@ -165,6 +177,19 @@ export const router = createBrowserRouter([
     {
         path: '/admin/transits/edit/:id',
         element: <AdminTransitForm />,
+    },
+    // Расписание
+    {
+        path: '/admin/schedule',
+        element: <AdminSchedule />,
+    },
+    {
+        path: '/admin/schedule/new',
+        element: <AdminScheduleForm />,
+    },
+    {
+        path: '/admin/schedule/edit/:id',
+        element: <AdminScheduleForm />,
     },
     // FAQ
     {

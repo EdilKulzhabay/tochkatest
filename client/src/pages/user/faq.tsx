@@ -64,28 +64,29 @@ const FAQ: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#161616] text-white p-4 pt-8">
+        <div className="min-h-screen bg-white text-gray-900">
             {/* Header with Back Button */}
-            <div className="relative text-center mb-8">
-                <Link to="/" className="absolute left-0 flex items-center text-white hover:text-gray-300 transition-colors">
-                    <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-lg">←</span>
-                    </div>
+            <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
+                <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <h1 className="text-2xl font-bold text-white">Вопросы и ответы</h1>
+                <h1 className="text-2xl font-bold">Вопросы и ответы</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
+                </div>
             </div>
 
             {/* FAQ Accordion */}
-            <div className="space-y-0">
+            <div className="space-y-0 p-4">
                 {faqItems.map((item) => (
-                    <div key={item.id} className="border-b border-gray-700">
+                    <div key={item.id} className="border-b border-gray-300">
                         <button
-                            className="w-full px-4 py-4 text-left flex justify-between items-center hover:bg-gray-800 transition-colors"
+                            className="w-full px-4 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors"
                             onClick={() => setOpenAccordion(openAccordion === item.id ? '' : item.id)}
                         >
-                            <span className="text-white font-medium pr-4">{item.question}</span>
-                            <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                <span className="text-gray-300 text-lg">
+                            <span className="text-gray-900 font-medium pr-4">{item.question}</span>
+                            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span className="text-gray-600 text-lg">
                                     {openAccordion === item.id ? '×' : '+'}
                                 </span>
                             </div>
@@ -93,7 +94,7 @@ const FAQ: React.FC = () => {
                         
                         {openAccordion === item.id && (
                             <div className="px-4 pb-4">
-                                <div className="text-gray-300 whitespace-pre-line leading-relaxed">
+                                <div className="text-gray-700 whitespace-pre-line leading-relaxed">
                                     {item.answer}
                                 </div>
                             </div>

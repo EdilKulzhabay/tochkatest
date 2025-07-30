@@ -18,13 +18,14 @@ const AdminSidebar: React.FC = () => {
     { path: '/admin/video-lessons', icon: '📚', label: 'Видео-уроки' },
     { path: '/admin/horoscopes', icon: '⭐', label: 'Гороскопы' },
     { path: '/admin/transits', icon: '🌙', label: 'Транзиты' },
+    { path: '/admin/schedule', icon: '🗓️', label: 'Расписание' },
     { path: '/admin/faq', icon: '❓', label: 'FAQ' },
     // { path: '/admin/users', icon: '👥', label: 'Пользователи' },
   ];
 
   return (
     <aside className="w-64 bg-white shadow-lg">
-      <div className="p-6 border-b">
+      <div className="p-5 border-b">
         <h2 className="text-xl font-bold text-gray-800">Админ-панель</h2>
       </div>
       <nav className="mt-6">

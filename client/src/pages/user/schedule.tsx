@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BottomNavigation from '../../components/BottomNavigation';
 
 interface Event {
     id: string;
@@ -63,21 +64,25 @@ const Schedule: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-black p-4 pt-8 pb-[110px]">
-            {/* Header with Back Button */}
-            <div className="text-center mb-8">
-                <h1 className="text-2xl font-bold text-[#f6c499]">Расписание</h1>
+        <div className="min-h-screen bg-white pb-[110px]">
+
+            <div className="flex items-center justify-between mb-2 p-4 bg-gray-100">
+                <div className='w-5 bg-gray-100'></div>
+                <h1 className="text-2xl font-bold text-gray-900">Расписание</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
+                </div>
             </div>
 
             {/* Events List */}
-            <div className="max-w-2xl mx-auto space-y-4">
+            <div className="max-w-2xl mx-auto space-y-4 p-4">
                 {events.map((event) => (
                     <a
                         key={event.id}
                         href={event.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block bg-gray-900 border border-[#e4b690] rounded-lg p-4 hover:bg-gray-800 hover:border-gray-600 transition-all duration-200"
+                        className="block bg-gray-50 border border-[#e4b690] rounded-lg p-4 hover:bg-gray-100 hover:border-gray-400 transition-all duration-200"
                     >
                         <div className="flex flex-col">
                             {/* Title */}
@@ -86,7 +91,7 @@ const Schedule: React.FC = () => {
                             </h3>
                             
                             {/* Date, Location and Broadcast info */}
-                            <p className="text-sm text-[#cba481] text-center">
+                            <p className="text-sm text-gray-600 text-center">
                                 {event.date}, {event.location}
                                 {event.hasBroadcast && (
                                     <span className="ml-2">+ трансляция</span>
@@ -98,24 +103,7 @@ const Schedule: React.FC = () => {
             </div>
 
             {/* Bottom Navigation */}
-            <nav className="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-[#e4b690] flex justify-around items-center p-3 shadow-lg">
-
-                <Link to="/diary" className={`flex flex-col items-center p-2 rounded-lg w-[100px]`}>
-                    <div className="text-2xl">📖</div>
-                    <span className="text-xs mt-1 text-white">Дневник</span>
-                </Link>
-
-                <Link to="/" className={`flex flex-col items-center p-2 rounded-lg w-[100px]`}> {/* Active state */}
-                    <div className="text-2xl text-white">🏠</div>
-                    <span className="text-xs mt-1 text-white">Домой</span> 
-                </Link>
-
-                <Link to="/schedule" className={`flex flex-col items-center bg-[#5a412c] p-2 rounded-lg w-[100px]`}>
-                    <div className="text-2xl">🗓️</div>
-                    <span className="text-xs mt-1">Расписание</span>
-                </Link>
-
-            </nav>
+            <BottomNavigation active="schedule" />
         </div>
     );
 };

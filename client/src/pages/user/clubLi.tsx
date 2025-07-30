@@ -3,37 +3,21 @@ import { Link } from 'react-router-dom';
 
 const ClubLi: React.FC = () => {
     return (
-        <div className="min-h-screen bg-black p-4 pt-8 pb-[110px]">
+        <div className="min-h-screen bg-white pb-[110px]">
             {/* Header */}
-            <div className="relative text-center mb-8">
-                <Link to="/" className="absolute left-0 flex items-center text-gray-300 hover:text-white transition-colors">
-                    <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-lg">←</span>
-                    </div>
+            <div className="flex items-center justify-between bg-gray-100 p-4">
+                <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <h1 className="text-2xl font-bold text-[#f6c499]">Клуб .li</h1>
+                <h1 className="text-2xl font-bold">Клуб .li</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
+                </div>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-                {/* Image Section */}
-                {/* <div className="mb-8">
-                    <img 
-                        src="/images/clubLi.png" 
-                        alt="Клуб .li"
-                        className="w-full max-w-md mx-auto rounded-lg shadow-lg"
-                        onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            const placeholder = document.createElement('div');
-                            placeholder.className = 'w-full max-w-md mx-auto h-64 bg-gray-800 rounded-lg flex items-center justify-center text-white text-center p-4';
-                            placeholder.innerHTML = `<div><div class="text-4xl mb-4">🏛️</div><div class="text-lg">Клуб .li</div></div>`;
-                            target.parentNode?.appendChild(placeholder);
-                        }}
-                    />
-                </div> */}
-
+            <div className="max-w-4xl mx-auto p-4">
                 {/* Content Section */}
-                <div className="bg-gray-900 border border-[#e4b690] rounded-lg p-6 mb-8">
+                <div className="bg-gray-50 border border-[#e4b690] rounded-lg p-6 mb-8">
                     <h2 className="text-xl font-bold text-[#f6c499] mb-6 text-center">
                         Что входит в подписку
                     </h2>
@@ -48,7 +32,7 @@ const ClubLi: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-[#f6c499] mb-2">
                                     Эксклюзивный контент от Нурлана Мураткали
                                 </h3>
-                                <p className="text-[#cba481] leading-relaxed">
+                                <p className="text-gray-700 leading-relaxed">
                                     Видео, аудио и тексты, которых нет в публичных каналах.
                                 </p>
                             </div>
@@ -63,7 +47,7 @@ const ClubLi: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-[#f6c499] mb-2">
                                     Ежемесячные занятия по установке Пространства Защиты
                                 </h3>
-                                <p className="text-[#cba481] leading-relaxed">
+                                <p className="text-gray-700 leading-relaxed">
                                     Раз в месяц — прямой эфир 1.5–2 часа для защиты себя, близких, дома и бизнеса.
                                 </p>
                             </div>
@@ -78,7 +62,7 @@ const ClubLi: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-[#f6c499] mb-2">
                                     Регулярная работа с энергетическими сущностями
                                 </h3>
-                                <p className="text-[#cba481] leading-relaxed">
+                                <p className="text-gray-700 leading-relaxed">
                                     Защитник Пространства, Проводник Целей, Хранитель Равновесия, Хранитель Клуба, Союзник, Энергетический Двойник и прочие.
                                 </p>
                             </div>
@@ -93,7 +77,7 @@ const ClubLi: React.FC = () => {
                                 <h3 className="text-lg font-semibold text-[#f6c499] mb-2">
                                     Сообщество единомышленников
                                 </h3>
-                                <p className="text-[#cba481] leading-relaxed">
+                                <p className="text-gray-700 leading-relaxed">
                                     Чат-группа для общения с другими участниками клуба.
                                 </p>
                             </div>

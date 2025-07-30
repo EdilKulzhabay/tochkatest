@@ -9,68 +9,78 @@ interface VideoLesson {
     thumbnailUrl: string;
     youtubeUrl: string;
     accessType: 'free' | 'paid' | 'subscription';
-    duration: string;
 }
 
 const VideoDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-    const [video, setVideo] = useState<VideoLesson | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    useEffect(() => {
-        // Здесь в реальном приложении был бы API запрос
-        // Пока используем моковые данные
-        const mockVideo: VideoLesson = {
-            id: id || '1',
-            title: 'Введение в энергоинформационные технологии',
-            shortDescription: 'Базовые принципы работы с энергией и информацией',
-            fullDescription: `Подробное введение в мир энергоинформационных технологий. 
-
-В этом видеоуроке вы изучите:
-• Основные принципы работы с энергией
-• Как чувствовать информационные потоки
-• Техники направленного воздействия
-• Практические упражнения для начинающих
-
-Этот урок является фундаментом для дальнейшего изучения энергоинформационных технологий и поможет вам понять базовые концепции, на которых строится вся система tochka.li.
-
-Рекомендуется проходить этот урок в спокойной обстановке, где вас никто не будет отвлекать.`,
-            thumbnailUrl: '/images/video-thumbnails/intro.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&showinfo=0',
+    const [videoLessons] = useState<VideoLesson[]>([
+        {
+            id: '1',
+            title: 'Медленные мысли',
+            shortDescription: 'Мастер-класс Нурлана Мураткали, который позволяет овладеть навыком изменения объективной реальности через технологию медленных мыслей',
+            fullDescription: `У 98% людей мысли не материальны, потому что они мыслят на «быстрых» мыслях (болталка в голове). Эфимероид – короткоживущий эгрегор (один сезон). «Медленная» мысль как бы идет фоном, вы делаете дела, а фоном идет мысль «позвони маме»; они даже во сне работают. Вы слушаете лекцию, а инсайты идут на «медленных» мыслях.
+Разница между быстрыми и медленными мыслями – как меняется русло подземной реки и направление ветра. Большую цель люди потока мыслят на «медленных» мыслях, все что не для себя – на «быстрых». А в социуме негативные вещи мыслят на «медленных» мыслях, а свои желания на «быстрых» мыслях.
+Подробнее об этом в новом видео Нурлана Мураткали:`,
+            thumbnailUrl: '/images/video-thumbnails/video1.png',
+            youtubeUrl: 'https://www.youtube.com/embed/4ayAeaJPC10',
+            accessType: 'free'
+        },
+        {
+            id: '2',
+            title: 'Референтная группа',
+            shortDescription: 'Мощная технология вхождения в состояния для решения конкретных задач и собирания нужных для вас сущностей',
+            fullDescription: `Референтная группа – мощная технология вхождения в состояния для решения конкретных задач (здоровье, деньги). Люди на уровне сознания видят тела, а на уровне подсознания ощущаем реальную силу привлекаемых сущностей. Референтную группу мы выбираем умом, а отбирает и договаривается наш Дух; она вытягивает нас в новые локации, на новые социальные слои.
+Подробнее о том, как правильно собрать референтную группу, в новом видео Нурлана Мураткали:`,
+            thumbnailUrl: '/images/video-thumbnails/video2.png',
+            youtubeUrl: 'https://www.youtube.com/embed/A0OVUJgGoWM',
             accessType: 'free',
-            duration: '15:30'
-        };
-        setVideo(mockVideo);
-    }, [id]);
+        },
+        {
+            id: '3',
+            title: 'Спиральная динамика',
+            shortDescription: 'Новейшая интегральная модель архитектуры сознания человека, которая реализует передний край представлений об этапах развития человека и общества',
+            fullDescription: 'Новейшая интегральная модель архитектуры сознания человека, которая реализует передний край представлений об этапах развития человека и общества',
+            thumbnailUrl: '/images/video-thumbnails/video3.png',
+            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            accessType: 'subscription',
+        }
+    ]);
 
-    const handlePlayClick = () => {
-        setIsPlaying(true);
-    };
+    const currentVideo = videoLessons.find(video => video.id === id);
 
-    if (!video) {
+    if (!currentVideo) {
         return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                    <p className="text-gray-600">Загрузка видео...</p>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Видео не найдено</h2>
+                    <Link to="/video" className="text-blue-600 hover:text-blue-700">
+                        Вернуться к списку видео
+                    </Link>
                 </div>
             </div>
         );
     }
 
+    const handlePlayClick = () => {
+        setIsPlaying(true);
+    };
+
     return (
-        <div className="min-h-screen bg-gray-50 p-4 pt-8">
+        <div className="min-h-screen">
             {/* Header with Back Button */}
-            <div className="relative text-center mb-8">
-                <Link to="/video" className="absolute left-0 flex items-center text-gray-700 hover:text-gray-900 transition-colors">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-lg">←</span>
-                    </div>
+            <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
+                <Link to="/video" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <h1 className="text-2xl font-bold text-gray-900">Видеоурок</h1>
+                <h1 className="text-2xl font-bold">Видео</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
+                </div>
             </div>
 
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto p-4">
                 {/* Video Player */}
                 <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
@@ -78,15 +88,15 @@ const VideoDetail: React.FC = () => {
                             // Превью с кнопкой воспроизведения
                             <div className="absolute top-0 left-0 w-full h-full bg-black">
                                 <img 
-                                    src={video.thumbnailUrl} 
-                                    alt={video.title}
+                                    src={currentVideo.thumbnailUrl} 
+                                    alt={currentVideo.title}
                                     className="w-full h-full object-cover"
                                     onError={(e) => {
                                         const target = e.target as HTMLImageElement;
                                         target.style.display = 'none';
                                         const placeholder = document.createElement('div');
                                         placeholder.className = 'w-full h-full bg-blue-600 flex items-center justify-center text-white text-center p-4';
-                                        placeholder.innerHTML = `<div><div class="text-4xl mb-4">📹</div><div class="text-lg">${video.title}</div></div>`;
+                                        placeholder.innerHTML = `<div><div class="text-4xl mb-4">📹</div><div class="text-lg">${videoLessons[Number(id) - 1].title}</div></div>`;
                                         target.parentNode?.appendChild(placeholder);
                                     }}
                                 />
@@ -100,15 +110,12 @@ const VideoDetail: React.FC = () => {
                                         </svg>
                                     </button>
                                 </div>
-                                <div className="absolute bottom-4 right-4 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
-                                    {video.duration}
-                                </div>
                             </div>
                         ) : (
                             // YouTube iframe после нажатия кнопки воспроизведения
                             <iframe
-                                src={`${video.youtubeUrl}&autoplay=1`}
-                                title={video.title}
+                                src={`${currentVideo.youtubeUrl}?autoplay=1`}
+                                title={currentVideo.title}
                                 className="absolute top-0 left-0 w-full h-full"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -122,19 +129,14 @@ const VideoDetail: React.FC = () => {
                 {/* Video Info */}
                 <div className="bg-white rounded-lg shadow-md p-6">
                     <div className="flex items-start justify-between mb-4">
-                        <h2 className="text-2xl font-bold text-gray-900">{video.title}</h2>
-                        <div className="flex items-center space-x-2">
-                            <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                                {video.duration}
-                            </span>
-                        </div>
+                        <h2 className="text-2xl font-bold text-gray-900">{currentVideo.title}</h2>
                     </div>
 
                     {/* Full Description */}
                     <div className="prose max-w-none">
                         <h3 className="text-lg font-semibold text-gray-900 mb-3">Описание</h3>
                         <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                            {video.fullDescription}
+                            {currentVideo.fullDescription}
                         </div>
                     </div>
                 </div>

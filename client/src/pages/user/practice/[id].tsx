@@ -6,9 +6,8 @@ interface Practice {
     title: string;
     subtitle: string;
     description: string;
-    fullDescription: string;
     imageUrl: string;
-    videoUrl: string;
+    youtubeUrl: string;
     accessType: 'free' | 'paid';
 }
 
@@ -24,9 +23,8 @@ const PracticeDetail: React.FC = () => {
             title: 'Суставная гимнастика',
             subtitle: 'Омолаживающая суставная гимнастика по авторской методике Нурлана Мураткали',
             description: 'Комплекс упражнений для восстановления подвижности суставов и омоложения организма',
-            fullDescription: 'Эта практика представляет собой комплекс специальных упражнений, разработанных Нурланом Мураткали для восстановления подвижности суставов и общего омоложения организма. Регулярное выполнение этих упражнений помогает улучшить кровообращение, укрепить связки и сухожилия, а также повысить общий уровень энергии.',
-            imageUrl: '/images/practices/joint-gymnastics.jpg',
-            videoUrl: 'https://www.youtube.com/watch?v=YGPH_QZvSdk&t=3s',
+            imageUrl: '/images/practices/practice1.png',
+            youtubeUrl: 'https://www.youtube.com/embed/YGPH_QZvSdk',
             accessType: 'free'
         },
         {
@@ -34,9 +32,8 @@ const PracticeDetail: React.FC = () => {
             title: 'Бесполезное упражнение',
             subtitle: 'Одна из самых действенных практик по выходу из социумной карусели',
             description: 'Практика для освобождения от социальных стереотипов и обретения внутренней свободы',
-            fullDescription: 'Эта уникальная практика помогает освободиться от социальных стереотипов и обрести внутреннюю свободу. Она направлена на разрушение автоматических реакций и привычных паттернов поведения, которые мешают нам жить в соответствии с нашей истинной природой.',
-            imageUrl: '/images/practices/useless-exercise.jpg',
-            videoUrl: 'https://youtu.be/Kdh7YihM8yk?feature=shared',
+            imageUrl: '/images/practices/practice2.png',
+            youtubeUrl: 'https://www.youtube.com/embed/Kdh7YihM8yk',
             accessType: 'free'
         }
     ];
@@ -59,91 +56,85 @@ const PracticeDetail: React.FC = () => {
         );
     }
 
-    const getYouTubeEmbedUrl = (url: string) => {
-        const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)?.[1];
-        return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0` : '';
+    const handlePlayClick = () => {
+        setIsPlaying(true);
     };
 
     return (
         <div className="min-h-screen bg-white">
             {/* Header */}
-            <div className="bg-orange-400 p-4 pt-8 pb-6">
-                <div className="flex items-center justify-between mb-4">
-                    <Link to="/practices" className="text-white">
-                        <div className="w-8 h-8 flex items-center justify-center">
-                            <span className="text-lg">←</span>
-                        </div>
-                    </Link>
-                </div>
-                <div className="text-center">
-                    <h1 className="text-xl font-bold text-gray-900 mb-1">{practice.title}</h1>
-                    <p className="text-gray-600 text-sm">{practice.subtitle}</p>
+            <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
+                <Link to="/practices" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
+                </Link>
+                <h1 className="text-2xl font-bold">Практики</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
                 </div>
             </div>
 
-            <div className="p-4">
+            <div className="max-w-4xl mx-auto p-4">
                 {/* Video Section */}
-                <div className="mb-6">
-                    {!isPlaying ? (
-                        <div 
-                            className="relative w-full h-48 bg-gray-100 rounded-lg cursor-pointer"
-                            onClick={() => setIsPlaying(true)}
-                        >
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center">
-                                    <span className="text-white text-2xl">▶️</span>
+
+                <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                        {!isPlaying ? (
+                            // Превью с кнопкой воспроизведения
+                            <div className="absolute top-0 left-0 w-full h-full bg-black">
+                                <img 
+                                    src={practice.imageUrl} 
+                                    alt={practice.title}
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        const target = e.target as HTMLImageElement;
+                                        target.style.display = 'none';
+                                        const placeholder = document.createElement('div');
+                                        placeholder.className = 'w-full h-full bg-blue-600 flex items-center justify-center text-white text-center p-4';
+                                        placeholder.innerHTML = `<div><div class="text-4xl mb-4">📹</div><div class="text-lg">${practice.title}</div></div>`;
+                                        target.parentNode?.appendChild(placeholder);
+                                    }}
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                                    <button
+                                        onClick={handlePlayClick}
+                                        className="bg-red-600 hover:bg-red-700 text-white rounded-full w-20 h-20 flex items-center justify-center transition-colors shadow-lg"
+                                    >
+                                        <svg className="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
-                            <div className="absolute bottom-4 left-4">
-                                <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">
-                                    Бесплатно
-                                </span>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden">
+                        ) : (
+                            // YouTube iframe после нажатия кнопки воспроизведения
                             <iframe
-                                src={getYouTubeEmbedUrl(practice.videoUrl)}
+                                src={`${practice.youtubeUrl}?autoplay=1`}
                                 title={practice.title}
-                                className="w-full h-full"
+                                className="absolute top-0 left-0 w-full h-full"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                            />
-                        </div>
-                    )}
-                </div>
-
-                {/* Description */}
-                <div className="bg-white border border-gray-200 rounded-lg p-6">
-                    <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                        Описание практики
-                    </h2>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                        {practice.fullDescription}
-                    </p>
-                    
-                    <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded">
-                        <h3 className="font-semibold text-gray-900 mb-2">Как выполнять:</h3>
-                        <ul className="text-gray-700 space-y-2">
-                            <li>• Найдите удобное место для выполнения практики</li>
-                            <li>• Убедитесь, что вас никто не отвлекает</li>
-                            <li>• Следуйте инструкциям в видео</li>
-                            <li>• Выполняйте практику регулярно для достижения лучших результатов</li>
-                        </ul>
+                                loading="lazy"
+                            ></iframe>
+                        )}
                     </div>
                 </div>
 
-                {/* Back Button */}
-                <div className="mt-6 text-center">
-                    <Link
-                        to="/practices"
-                        className="inline-flex items-center text-orange-600 hover:text-orange-700 transition-colors"
-                    >
-                        <span className="mr-2">←</span>
-                        Назад к практикам
-                    </Link>
+                {/* Description */}
+                <div className="bg-white rounded-lg shadow-md p-6">
+                    <div className="flex items-start justify-between mb-4">
+                        <h2 className="text-2xl font-bold text-gray-900">{practice.title}</h2>
+                    </div>
+
+                    {/* Full Description */}
+                    <div className="prose max-w-none">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-3">Описание</h3>
+                        <div className="text-gray-700 whitespace-pre-line leading-relaxed">
+                            {practice.description}
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     );

@@ -1,92 +1,56 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-interface VideoLesson {
+interface Meditation {
     id: string;
     title: string;
     shortDescription: string;
     fullDescription: string;
     thumbnailUrl: string;
     youtubeUrl: string;
-    accessType: 'free' | 'paid' | 'subscription';
-    duration: string;
+    accessType: 'free' | 'subscription';
 }
 
 const Meditations: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
-    const [videoLessons] = useState<VideoLesson[]>([
+    const [meditations] = useState<Meditation[]>([
         {
             id: '1',
-            title: 'Введение в энергоинформационные технологии',
-            shortDescription: 'Базовые принципы работы с энергией и информацией',
-            fullDescription: 'Подробное введение в мир энергоинформационных технологий. Изучите основные принципы работы с энергией, научитесь чувствовать и направлять информационные потоки.',
-            thumbnailUrl: '/images/meditation-thumbnails/intro.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'free',
-            duration: '15:30'
+            title: 'Медитация Новой Эры',
+            shortDescription: 'Медитация – это новая форма молитвы, когда мы созидаем из состояния Я-Личность-Душа',
+            fullDescription: `Главная проблема человечества — в выборе между путём и потребностью Души. Большинство ведется на соблазн, когда социум заманивает рекламой, блогерами, привлекательными побрякушками, и, человек, запутавшись, выбирает Путь. А он неизбежно ведет в ловушку социумных каруселей. Но парадокс в том, что начать жить в потоке, на нужной Вам скорости, жить в кайф, можно только через замедление, т.е. выскочив из замкнутого круга. Мы попадаем в поток и начинаем жить в кайф. 
+В потоковом состоянии у Вас появится возможность создавать свои системы. Потому что в Душе, Вы двигаетесь дальше и через поток входите в следующий процесс, в котором сознание направляется вовнутрь. И Ваша энергия, Ваше внимание, как вся энергия эволюции, начинает идти вовнутрь. Это состояние «Я-Личность-Душа». Располагайтесь удобно и проделайте эту медитацию:`,
+            thumbnailUrl: '/images/meditation-thumbnails/meditation1.png',
+            youtubeUrl: 'https://www.youtube.com/embed/pBDvKvDskXM',
+            accessType: 'free'
         },
         {
             id: '2',
-            title: 'Техника осознанного дыхания',
-            shortDescription: 'Практические упражнения для восстановления энергии',
-            fullDescription: 'Мастер-класс по технике осознанного дыхания. Научитесь правильно дышать для восстановления энергии и улучшения самочувствия.',
-            thumbnailUrl: '/images/meditation-thumbnails/breathing.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            title: 'Технология медленных мыслей',
+            shortDescription: 'Медитация, которая позволяет овладеть навыком изменения объективной реальности через технологию медленных мыслей',
+            fullDescription: `У 98% людей мысли не материальны, потому что они мыслят на «быстрых» мыслях (болталка в голове). Эфимероид – короткоживущий эгрегор (один сезон). «Медленная» мысль как бы идет фоном, вы делаете дела, а фоном идет мысль «позвони маме»; они даже во сне работают. Вы слушаете лекцию, а инсайты идут на «медленных» мыслях.
+Разница между быстрыми и медленными мыслями – как меняется русло подземной реки и направление ветра. Большую цель люди потока мыслят на «медленных» мыслях, все что не для себя – на «быстрых». А в социуме негативные вещи мыслят на «медленных» мыслях, а свои желания на «быстрых» мыслях.
+Подробнее об этом в новом видео Нурлана Мураткали:`,
+            thumbnailUrl: '/images/meditation-thumbnails/meditation2.png',
+            youtubeUrl: 'https://www.youtube.com/embed/cg6lg0lAbyE',
             accessType: 'free',
-            duration: '22:15'
         },
         {
             id: '3',
-            title: 'Медитация для начинающих',
-            shortDescription: 'Простые техники медитации для ежедневной практики',
-            fullDescription: 'Пошаговое руководство по медитации для начинающих. Узнайте, как правильно медитировать и интегрировать практику в повседневную жизнь.',
-            thumbnailUrl: '/images/meditation-thumbnails/meditation.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'free',
-            duration: '18:45'
-        },
-        {
-            id: '4',
-            title: 'Работа с чакрами',
-            shortDescription: 'Активация и балансировка энергетических центров',
-            fullDescription: 'Глубокое погружение в работу с чакрами. Изучите методы активации и балансировки энергетических центров для гармонизации жизни.',
-            thumbnailUrl: '/images/meditation-thumbnails/chakras.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'paid',
-            duration: '45:20'
-        },
-        {
-            id: '5',
-            title: 'Техники материализации желаний',
-            shortDescription: 'Практические методы воплощения целей в реальность',
-            fullDescription: 'Продвинутые техники материализации желаний. Научитесь правильно формулировать и воплощать свои цели в реальность.',
-            thumbnailUrl: '/images/meditation-thumbnails/manifestation.jpg',
+            title: 'Медитация «Идеальные роды»',
+            shortDescription: 'Это уникальный метод, позволяющий изменить процесс собственного рождения в своем сознании, подсознании и энергоинформационной пространстве',
+            fullDescription: 'Это уникальный метод, позволяющий изменить процесс собственного рождения в своем сознании, подсознании и энергоинформационной пространстве',
+            thumbnailUrl: '/images/meditation-thumbnails/meditation3.png',
             youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
             accessType: 'subscription',
-            duration: '52:10'
-        },
-        {
-            id: '6',
-            title: 'Защита от энергетических атак',
-            shortDescription: 'Методы создания защитных барьеров',
-            fullDescription: 'Изучите эффективные методы защиты от негативных энергетических воздействий и создания сильных защитных барьеров.',
-            thumbnailUrl: '/images/meditation-thumbnails/protection.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'subscription',
-            duration: '38:25'
         }
     ]);
 
-    const handleVideoClick = (video: VideoLesson) => {
-        if (video.accessType === 'free') {
+    const handleMeditationClick = (meditation: Meditation) => {
+        if (meditation.accessType === 'free') {
             // Переход на страницу видео
-            window.location.href = `/meditation/${video.id}`;
-        } else if (video.accessType === 'paid') {
-            setModalMessage('Для того чтобы просмотреть медитацию вы должны купить доступ на 3 месяца');
-            setShowModal(true);
-        } else if (video.accessType === 'subscription') {
-            setModalMessage('Для того чтобы просмотреть медитацию вы должны оформить подписку');
+            window.location.href = `/meditation/${meditation.id}`;
+        } else if (meditation.accessType === 'subscription') {
             setShowModal(true);
         }
     };
@@ -95,7 +59,6 @@ const Meditations: React.FC = () => {
         switch (accessType) {
             case 'free':
                 return null;
-            case 'paid':
             case 'subscription':
                 return '🔒';
             default:
@@ -107,8 +70,6 @@ const Meditations: React.FC = () => {
         switch (accessType) {
             case 'free':
                 return 'bg-green-500 hover:bg-green-600';
-            case 'paid':
-                return 'bg-blue-500 hover:bg-blue-600';
             case 'subscription':
                 return 'bg-purple-500 hover:bg-purple-600';
             default:
@@ -117,26 +78,27 @@ const Meditations: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 p-4 pt-8 relative">
+        <div className="min-h-screen relative">
             {/* Header with Back Button */}
-            <div className="relative text-center mb-8">
-                <Link to="/" className="absolute left-0 flex items-center text-gray-700 hover:text-gray-900 transition-colors">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-lg">←</span>
-                    </div>
+            <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
+                <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <h1 className="text-2xl font-bold text-gray-900">Медитации</h1>
+                <h1 className="text-2xl font-bold">Медитации</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
+                </div>
             </div>
 
             {/* Video Lessons Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {videoLessons.map((video) => (
-                    <div key={video.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                {meditations.map((meditation) => (
+                    <div key={meditation.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                         {/* Thumbnail */}
                         <div className="relative">
                             <img 
-                                src={video.thumbnailUrl} 
-                                alt={video.title}
+                                src={meditation.thumbnailUrl} 
+                                alt={meditation.title}
                                 className="w-full h-48 object-cover bg-gray-200"
                                 onError={(e) => {
                                     const target = e.target as HTMLImageElement;
@@ -144,46 +106,41 @@ const Meditations: React.FC = () => {
                                     // Показываем заглушку с текстом
                                     const placeholder = document.createElement('div');
                                     placeholder.className = 'w-full h-48 bg-blue-600 flex items-center justify-center text-white text-center p-4';
-                                    placeholder.innerHTML = `<div><div class="text-2xl mb-2">📹</div><div class="text-sm">${video.title}</div></div>`;
+                                    placeholder.innerHTML = `<div><div class="text-2xl mb-2">📹</div><div class="text-sm">${meditation.title}</div></div>`;
                                     target.parentNode?.appendChild(placeholder);
                                 }}
                             />
-                            <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
-                                {video.duration}
-                            </div>
-                            {video.accessType !== 'free' && (
-                                <div className="absolute top-2 left-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
-                                    {video.accessType === 'paid' ? '💎' : '⭐'}
-                                </div>
-                            )}
+                            {/* <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                                {meditation.duration}
+                            </div> */}
                         </div>
 
                         {/* Content */}
                         <div className="p-4">
                             <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-                                {video.title}
+                                {meditation.title}
                             </h3>
                             <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                                {video.shortDescription}
+                                {meditation.shortDescription}
                             </p>
 
                             {/* Action Button */}
                             <button
-                                onClick={() => handleVideoClick(video)}
+                                onClick={() => handleMeditationClick(meditation)}
                                 className={`w-full py-2 px-4 rounded-lg text-white font-medium transition-colors flex items-center justify-center ${
-                                    video.accessType === 'free' 
-                                        ? getAccessColor(video.accessType)
+                                    meditation.accessType === 'free' 
+                                        ? getAccessColor(meditation.accessType)
                                         : 'bg-gray-400 hover:bg-gray-500'
                                 }`}
                             >
-                                {video.accessType === 'free' ? (
+                                {meditation.accessType === 'free' ? (
                                     <>
                                         <span>Перейти</span>
                                         <span className="ml-2">▶</span>
                                     </>
                                 ) : (
                                     <>
-                                        <span className="mr-2">{getAccessIcon(video.accessType)}</span>
+                                        <span className="mr-2">{getAccessIcon(meditation.accessType)}</span>
                                         <span>Закрыто</span>
                                     </>
                                 )}
@@ -206,7 +163,7 @@ const Meditations: React.FC = () => {
                                 Доступ ограничен
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                {modalMessage}
+                                Нужна подписка
                             </p>
                             <button
                                 onClick={() => setShowModal(false)}

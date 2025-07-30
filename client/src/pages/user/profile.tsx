@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Switch from "react-switch";
 
 const Profile: React.FC = () => {
     const [showSubscriptionModal, setShowSubscriptionModal] = useState(false);
     const [showClubModal, setShowClubModal] = useState(false);
+    const [notification, setNotification] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [name, setName] = useState('Константин Павлов');
 
     const handleSubscribe = () => {
         window.open('https://tochka.tg/', '_blank');
@@ -16,25 +20,19 @@ const Profile: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white p-4 pt-8 pb-[110px]">
+        <div className="min-h-screen pb-[110px]">
             {/* Header */}
-            <div className="relative flex items-center justify-between mb-8">
-                <Link to="/" className="flex items-center text-gray-900">
-                    <div className="w-8 h-8 flex items-center justify-center">
-                        <span className="text-lg">←</span>
-                    </div>
+            <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
+                <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <div className="flex items-center space-x-4">
-                    <button className="w-8 h-8 flex items-center justify-center">
-                        <span className="text-lg">⏰</span>
-                    </button>
-                    <button className="w-8 h-8 flex items-center justify-center">
-                        <span className="text-lg">⚙️</span>
-                    </button>
+                <h1 className="text-2xl font-bold">Профиль</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
                 </div>
             </div>
 
-            <div className="max-w-md mx-auto">
+            <div className="max-w-md mx-auto p-4">
                 {/* Profile Header Section */}
                 <div className="text-center mb-8">
                     {/* Profile Picture */}
@@ -52,18 +50,33 @@ const Profile: React.FC = () => {
 
                     {/* User Name */}
                     <h1 className="text-xl font-bold text-gray-900 mb-2">
-                        Константин Павлов
+                        {isEditing ? (
+                            <div className="flex items-center justify-center gap-2">
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    className="border border-gray-300 rounded px-2 py-1"
+                                />
+                                <button 
+                                    onClick={() => setIsEditing(false)}
+                                    className="text-sm text-blue-600"
+                                >
+                                    Сохранить
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="flex items-center justify-center gap-2">
+                                {name}
+                                <button
+                                    onClick={() => setIsEditing(true)}
+                                    className="text-sm text-gray-500"
+                                >
+                                    ✏️
+                                </button>
+                            </div>
+                        )}
                     </h1>
-
-                    {/* Add Bio Link */}
-                    <button className="text-blue-400 underline text-sm mb-2">
-                        ADD BIO
-                    </button>
-
-                    {/* Follower/Following Count */}
-                    <p className="text-gray-400 text-sm">
-                        0 Follower • 0 Following
-                    </p>
                 </div>
 
                 {/* Badges Section */}
@@ -84,8 +97,20 @@ const Profile: React.FC = () => {
                     </div>
                 </div>
 
+                <div className="mb-8">
+                    <div className="flex items-center justify-between bg-white rounded-lg p-4 border border-gray-200">
+                        <span className="text-gray-900 font-medium">Разрешить уведомления</span>
+                        <Switch 
+                            checked={notification}
+                            onChange={() => setNotification(!notification)}
+                            uncheckedIcon={false}
+                            checkedIcon={false}
+                        />
+                    </div>
+                </div>
+
                 {/* Action Buttons */}
-                <div className="space-y-4">
+                <div className="space-y-4 mb-8">
                     <button
                         onClick={() => setShowSubscriptionModal(true)}
                         className="w-full bg-white border border-gray-300 rounded-lg py-4 px-6 text-gray-900 font-medium hover:bg-gray-50 transition-colors"
@@ -100,11 +125,15 @@ const Profile: React.FC = () => {
                         Членство в клубе
                     </button>
                 </div>
+
+                <div className="flex justify-end">
+                    <Link to="/about" className="text-blue-600 underline text-lg">О программе</Link>
+                </div>
             </div>
 
             {/* Subscription Status Modal */}
             {showSubscriptionModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
                     <div className="bg-white rounded-lg p-6 max-w-md w-full">
                         <div className="text-center">
                             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -137,7 +166,7 @@ const Profile: React.FC = () => {
 
             {/* Club Membership Modal */}
             {showClubModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
                     <div className="bg-white rounded-lg p-6 max-w-md w-full">
                         <div className="text-center">
                             <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">

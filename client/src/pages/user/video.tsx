@@ -8,73 +8,41 @@ interface VideoLesson {
     fullDescription: string;
     thumbnailUrl: string;
     youtubeUrl: string;
-    accessType: 'free' | 'paid' | 'subscription';
-    duration: string;
+    accessType: 'free' | 'subscription';
 }
 
 const Video: React.FC = () => {
     const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
     const [videoLessons] = useState<VideoLesson[]>([
         {
             id: '1',
-            title: 'Введение в энергоинформационные технологии',
-            shortDescription: 'Базовые принципы работы с энергией и информацией',
-            fullDescription: 'Подробное введение в мир энергоинформационных технологий. Изучите основные принципы работы с энергией, научитесь чувствовать и направлять информационные потоки.',
-            thumbnailUrl: '/images/video-thumbnails/intro.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'free',
-            duration: '15:30'
+            title: 'Медленные мысли',
+            shortDescription: 'Мастер-класс Нурлана Мураткали, который позволяет овладеть навыком изменения объективной реальности через технологию медленных мыслей',
+            fullDescription: `У 98% людей мысли не материальны, потому что они мыслят на «быстрых» мыслях (болталка в голове). Эфимероид – короткоживущий эгрегор (один сезон). «Медленная» мысль как бы идет фоном, вы делаете дела, а фоном идет мысль «позвони маме»; они даже во сне работают. Вы слушаете лекцию, а инсайты идут на «медленных» мыслях.
+Разница между быстрыми и медленными мыслями – как меняется русло подземной реки и направление ветра. Большую цель люди потока мыслят на «медленных» мыслях, все что не для себя – на «быстрых». А в социуме негативные вещи мыслят на «медленных» мыслях, а свои желания на «быстрых» мыслях.
+Подробнее об этом в новом видео Нурлана Мураткали:`,
+            thumbnailUrl: '/images/video-thumbnails/video1.png',
+            youtubeUrl: 'https://www.youtube.com/embed/4ayAeaJPC10',
+            accessType: 'free'
         },
         {
             id: '2',
-            title: 'Техника осознанного дыхания',
-            shortDescription: 'Практические упражнения для восстановления энергии',
-            fullDescription: 'Мастер-класс по технике осознанного дыхания. Научитесь правильно дышать для восстановления энергии и улучшения самочувствия.',
-            thumbnailUrl: '/images/video-thumbnails/breathing.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            title: 'Референтная группа',
+            shortDescription: 'Мощная технология вхождения в состояния для решения конкретных задач и собирания нужных для вас сущностей',
+            fullDescription: `Референтная группа – мощная технология вхождения в состояния для решения конкретных задач (здоровье, деньги). Люди на уровне сознания видят тела, а на уровне подсознания ощущаем реальную силу привлекаемых сущностей. Референтную группу мы выбираем умом, а отбирает и договаривается наш Дух; она вытягивает нас в новые локации, на новые социальные слои.
+Подробнее о том, как правильно собрать референтную группу, в новом видео Нурлана Мураткали:`,
+            thumbnailUrl: '/images/video-thumbnails/video2.png',
+            youtubeUrl: 'https://www.youtube.com/embed/A0OVUJgGoWM',
             accessType: 'free',
-            duration: '22:15'
         },
         {
             id: '3',
-            title: 'Медитация для начинающих',
-            shortDescription: 'Простые техники медитации для ежедневной практики',
-            fullDescription: 'Пошаговое руководство по медитации для начинающих. Узнайте, как правильно медитировать и интегрировать практику в повседневную жизнь.',
-            thumbnailUrl: '/images/video-thumbnails/meditation.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'free',
-            duration: '18:45'
-        },
-        {
-            id: '4',
-            title: 'Работа с чакрами',
-            shortDescription: 'Активация и балансировка энергетических центров',
-            fullDescription: 'Глубокое погружение в работу с чакрами. Изучите методы активации и балансировки энергетических центров для гармонизации жизни.',
-            thumbnailUrl: '/images/video-thumbnails/chakras.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'paid',
-            duration: '45:20'
-        },
-        {
-            id: '5',
-            title: 'Техники материализации желаний',
-            shortDescription: 'Практические методы воплощения целей в реальность',
-            fullDescription: 'Продвинутые техники материализации желаний. Научитесь правильно формулировать и воплощать свои цели в реальность.',
-            thumbnailUrl: '/images/video-thumbnails/manifestation.jpg',
+            title: 'Спиральная динамика',
+            shortDescription: 'Новейшая интегральная модель архитектуры сознания человека, которая реализует передний край представлений об этапах развития человека и общества',
+            fullDescription: 'Новейшая интегральная модель архитектуры сознания человека, которая реализует передний край представлений об этапах развития человека и общества',
+            thumbnailUrl: '/images/video-thumbnails/video3.png',
             youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
             accessType: 'subscription',
-            duration: '52:10'
-        },
-        {
-            id: '6',
-            title: 'Защита от энергетических атак',
-            shortDescription: 'Методы создания защитных барьеров',
-            fullDescription: 'Изучите эффективные методы защиты от негативных энергетических воздействий и создания сильных защитных барьеров.',
-            thumbnailUrl: '/images/video-thumbnails/protection.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-            accessType: 'subscription',
-            duration: '38:25'
         }
     ]);
 
@@ -82,11 +50,7 @@ const Video: React.FC = () => {
         if (video.accessType === 'free') {
             // Переход на страницу видео
             window.location.href = `/video/${video.id}`;
-        } else if (video.accessType === 'paid') {
-            setModalMessage('Для того чтобы просмотреть видеоурок вы должны купить доступ на 3 месяца');
-            setShowModal(true);
         } else if (video.accessType === 'subscription') {
-            setModalMessage('Для того чтобы просмотреть видеоурок вы должны оформить подписку');
             setShowModal(true);
         }
     };
@@ -95,7 +59,6 @@ const Video: React.FC = () => {
         switch (accessType) {
             case 'free':
                 return null;
-            case 'paid':
             case 'subscription':
                 return '🔒';
             default:
@@ -107,8 +70,6 @@ const Video: React.FC = () => {
         switch (accessType) {
             case 'free':
                 return 'bg-green-500 hover:bg-green-600';
-            case 'paid':
-                return 'bg-blue-500 hover:bg-blue-600';
             case 'subscription':
                 return 'bg-purple-500 hover:bg-purple-600';
             default:
@@ -117,19 +78,20 @@ const Video: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 p-4 pt-8 relative">
+        <div className="min-h-screen relative">
             {/* Header with Back Button */}
-            <div className="relative text-center mb-8">
-                <Link to="/" className="absolute left-0 flex items-center text-gray-700 hover:text-gray-900 transition-colors">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center mr-2">
-                        <span className="text-lg">←</span>
-                    </div>
+            <div className="flex items-center justify-between bg-gray-100 p-4 mb-2">
+                <Link to="/" className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="/icons/arrowBack.png" alt="arrowBack" className="w-5 h-5" />
                 </Link>
-                <h1 className="text-2xl font-bold text-gray-900">Видеоуроки</h1>
+                <h1 className="text-2xl font-bold">Видео</h1>
+                <div>
+                    <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
+                </div>
             </div>
 
             {/* Video Lessons Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                 {videoLessons.map((video) => (
                     <div key={video.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                         {/* Thumbnail */}
@@ -148,14 +110,9 @@ const Video: React.FC = () => {
                                     target.parentNode?.appendChild(placeholder);
                                 }}
                             />
-                            <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                            {/* <div className="absolute top-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
                                 {video.duration}
-                            </div>
-                            {video.accessType !== 'free' && (
-                                <div className="absolute top-2 left-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
-                                    {video.accessType === 'paid' ? '💎' : '⭐'}
-                                </div>
-                            )}
+                            </div> */}
                         </div>
 
                         {/* Content */}
@@ -206,7 +163,7 @@ const Video: React.FC = () => {
                                 Доступ ограничен
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                {modalMessage}
+                                Нужна подписка
                             </p>
                             <button
                                 onClick={() => setShowModal(false)}

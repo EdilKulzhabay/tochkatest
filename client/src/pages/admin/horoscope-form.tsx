@@ -62,7 +62,7 @@ const AdminHoroscopeForm: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100">
       <AdminSidebar />
 
       {/* Main Content */}
