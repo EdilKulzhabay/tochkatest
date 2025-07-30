@@ -67,7 +67,7 @@ const Diary: React.FC = () => {
         <div className="min-h-screen bg-white pb-[110px]">
             <div className="flex items-center justify-between mb-2 p-4 bg-gray-100">
                 <div className='w-5 bg-gray-100'></div>
-                <h1 className="text-2xl font-bold text-gray-900">Дневник ОБД</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Дневник ОДБ</h1>
                 <div>
                     <img src="/icons/logo.png" alt="logo" className="w-8 h-8" />
                 </div>

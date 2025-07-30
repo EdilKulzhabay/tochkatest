@@ -6,7 +6,7 @@ export default function BottomNavigation(props: { active: string }) {
 
             <Link to="/diary" className={`flex flex-col items-center ${props.active === "diary" ? "bg-gray-100" : "bg-white"} p-2 rounded-lg w-[100px]`}>
                 <div><img src={'/icons/diary.png'} alt="diary" className="w-10 h-10" /></div>
-                <span className="text-xs mt-1">Дневник ОБД</span>
+                <span className="text-xs mt-1">Дневник ОДБ</span>
             </Link>
 
             <Link to="/" className={`flex flex-col items-center ${props.active === "home" ? "bg-gray-100" : "bg-white"} p-2 rounded-lg w-[100px]`}> {/* Active state */}
